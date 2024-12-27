@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "name":"Forever Album",
+        "price": 20,
+        "image": "images/Black and Pink Album Cover.jpg"
+    },
+    {
+        "id": 2,
+        "name":" MoonLight Album",
+        "price": 25,
+        "image": "images/Black Red Grunge Album Cover.jpg"
+    },
+    {
+        "id": 3,
+        "name":" Street Lights",
+        "price": 27,
+        "image": "images/Pop Album Cover.jpg"
+    },
+    {
+        "id": 4,
+        "name":" GoodBye Album",
+        "price": 33,
+        "image": "images/Country Man Album Cover.jpg"
+    },
+    {
+        "id": 5,
+        "name":" Country Album",
+        "price": 29,
+        "image": "images/Country Album Cover.jpg"
+    },
+    {
+        "id": 6,
+        "name":" Luxury Night",
+        "price": 40,
+        "image": "images/Gray Simple Jazz Album Cover.jpg"
+    },
+    {
+        "id": 7,
+        "name":" Jazz Instrumental",
+        "price": 35,
+        "image": "images/Yellow and Black  Jazz Album Cover.jpg"
+    }
+
+]
