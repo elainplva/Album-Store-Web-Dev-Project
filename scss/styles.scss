@@ -1,0 +1,134 @@
+// Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$error-color: #e74c3c;
+$text-color: #333;
+$background-color: #f9f9f9;
+$input-bg: #fff;
+$input-border: #ccc;
+$button-bg: $primary-color;
+$button-text-color: #fff;
+
+// Mixins
+@mixin flex-center($direction: column) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($property, $duration: 0.3s, $ease: ease-in-out) {
+  transition: $property $duration $ease;
+}
+
+// Global Styles
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+// Main Container
+#login {
+  @include flex-center;
+  background-image: url(./images/music-player-7792956_1280.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  padding: 2rem;
+
+  h1 {
+    color: $primary-color;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Login Form
+.loginForm {
+  @include flex-center;
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  .form-group {
+    width: 100%;
+    margin-bottom: 1.5rem;
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      color: $text-color;
+      background: $input-bg;
+      border: 1px solid $input-border;
+      border-radius: 4px;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 4px rgba($primary-color, 0.5);
+      }
+    }
+  }
+
+  .btn-primary {
+    background: $button-bg;
+    color: $button-text-color;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    @include transition(all);
+
+    &:hover {
+      background: darken($button-bg, 10%);
+    }
+  }
+
+  #loginerror {
+    color: $error-color;
+    background: rgba($error-color, 0.1);
+    border: 1px solid $error-color;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+
+    a {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Responsive Design
+@media only screen and (max-width: 768px) {
+  #login {
+    padding: 1rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .loginForm {
+    padding: 1.5rem;
+  }
+}
+

@@ -1,51 +1,32 @@
-// checkout.js
+document.addEventListener('DOMContentLoaded', () => {
+    const checkoutButton = document.getElementById('buy-now');
+    const paymentSuccess = document.getElementById('payment-success');
+    const paymentFailure = document.getElementById('payment-failure');
 
-var checkout = document.getElementById('buy-now');
-// add a listener for add to cart if such a button id is pressed
-
-var element = document.getElementById("payment-failure");
-element.style.display = 'none';
-var element = document.getElementById("payment-success");
-element.style.display = 'none';
-
-var loggedin=localStorage.getItem('loggedIn'); 
-if (loggedin==0) {
-    window.location.href = "login.html";  // redirect to login page
-}
-// add a listener so that we run this code and preventdefault for submit...
-checkout.addEventListener("click", () => {
-    event.preventDefault();
-    var cardnumber=document.getElementById('cardNumber').value;
-    var cardcvv=document.getElementById('cardCvv').value;
-
-    if (cardnumber=="1234 5678 9102 3456" && cardcvv=="123") {
-        alert("payment success");
-        var element = document.getElementById("payment-failure");
-        element.style.display = 'none';
-        //element.classList.add("d-none"); // bootstrap hide
-        var element = document.getElementById("payment-success");
-        element.style.display = 'block';
-        //element.classList.remove("d-none"); // bootstrap hide
-        // now set cart total to zero
-        var total=0;
-        // makes sure that when we goto another page the total is zero 
-        localStorage.setItem('checkout',total); 
-
-    } else {
-        alert("payment failure");
-        var element = document.getElementById("payment-failure");
-        element.style.display = 'block';
-        var element = document.getElementById("payment-success");
-        element.style.display = 'none';
-        //element.classList.add("d-none");
-        var element = document.getElementById("payment-failure");
-        //element.classList.remove("d-none");
- 
+    // Check if the user is logged in
+    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+    if (!isLoggedIn) {
+        alert('Please log in to proceed with the checkout.');
+        window.location.href = 'login.html';
     }
-    return false;  
 
-    
-    
-})
+    // Handle checkout button click
+    checkoutButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const cardNumber = document.getElementById('cardNumber').value;
+        const cardCvv = document.getElementById('cardCvv').value;
 
+        if (cardNumber === '1234 5678 9102 3456' && cardCvv === '123') {
+            // Show success message
+            paymentFailure.style.display = 'none';
+            paymentSuccess.style.display = 'block';
 
+            // Clear cart and update localStorage
+            localStorage.setItem('cart', JSON.stringify([]));
+        } else {
+            // Show failure message
+            paymentSuccess.style.display = 'none';
+            paymentFailure.style.display = 'block';
+        }
+    });
+});

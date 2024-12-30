@@ -160,10 +160,25 @@ body .showCart .container{
 .listCart::-webkit-scrollbar{
     width: 0;
 }
+
 @media only screen and (max-width: 992px) {
     .listProduct{
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+main #login {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginForm{
+    width: 300px;
+    margin: 0 auto;
+
 }
 
 

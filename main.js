@@ -23,6 +23,8 @@ checkOutButton.addEventListener('click', () => {
     window.location.href = 'checkout.html'; // Redirect to the checkout page
 });
 
+
+
 // Render products
 const addDataToHTML = (filteredProducts = products) => {
     listProductHTML.innerHTML = ''; // Clear previous products
