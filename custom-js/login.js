@@ -1,29 +1,19 @@
 
-var loginStatus = document.getElementById('user-login');
-// add a listener for add to cart if such a button id is pressed
-loginStatus.addEventListener("submit", loginUser);
+document.getElementById('user-login').addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission
 
-event.preventDefault();
+    const email = document.getElementById('emailAddressID').value;
+    const password = document.getElementById('passwordID').value;
 
-function loginUser() {
-
-    // wait for submit button to be clicked on login form - 
-    // this code only invoked if login form submit button clicked
-
-    var email = document.getElementById('emailAddressID').value;
-    var password= document.getElementById('passwordID').value;
-    if (email=="wmitty@email.com" && password=="password1")  {   
-        // successful login, user redirected to shop.html
-        localStorage.setItem('loggedIn',1);    
-        window.location.href = "shop.html";  // redirect to shop page
+    if (email === "wmitty@email.com" && password === "password1") {
+        // Successful login
+        localStorage.setItem('loggedIn', 'true'); // Use string "true"
+        alert("Login successful!");
+        window.location.href = "shop.html"; // Redirect to shop
+    } else {
+        // Failed login
+        alert("Invalid login details");
+        localStorage.setItem('loggedIn', 'false'); // Use string "false"
+        document.getElementById("loginerror").style.display = "block";
     }
-    else {
-        alert("invalid login details");
-        // login unsuccessful, error message appears
-        localStorage.setItem('loggedIn',0);
-        var element = document.getElementById("loginerror");
-       // element.classList.remove("d-none");
-       // element.classList.remove("d-block");
-    }
-    event.preventDefault();
-}
+});

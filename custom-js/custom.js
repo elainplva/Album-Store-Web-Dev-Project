@@ -29,27 +29,32 @@ function Logout() {
 checkLoginStatus()
 
 function checkLoginStatus() {
+    const loggedIn = localStorage.getItem('loggedIn') === 'true'; // Correct comparison
+    const userDetailsElement = document.getElementById("userdetails");
 
-    
-    var loggedin=localStorage.getItem('loggedIn'); 
-    var element = document.getElementById("userdetails");
-    if (loggedin==1) {
-        // change the text from Login to Logout
-        document.querySelector('#loginlogout').innerHTML="Logout";
-        element.classList.remove("d-none");        
-        element.classList.add("d-show");      
-    } else{
-        // use add to hide the display of User Details
-        //element.classList.add("d-none");        
-        //element.classList.remove("d-show");
-        document.querySelector('#loginlogout').innerHTML="Login"; 
-        element = document.getElementById("loginlogout");
-        element.setAttribute("href", "login.html");
-        var element = document.getElementById("userdetails");
-        element.style.display = 'none';
-    } 
-
+    if (loggedIn) {
+        document.querySelector('#loginlogout').innerHTML = "Logout";
+        userDetailsElement.classList.remove("d-none");
+        userDetailsElement.classList.add("d-show");
+    } else {
+        document.querySelector('#loginlogout').innerHTML = "Login";
+        document.querySelector('#loginlogout').setAttribute("href", "login.html");
+        userDetailsElement.style.display = 'none';
+    }
 }
+
+document.getElementById('loginlogout').addEventListener("click", function () {
+    const loggedIn = localStorage.getItem('loggedIn') === 'true';
+
+    if (loggedIn) {
+        localStorage.setItem('loggedIn', 'false');
+        window.location.href = "index.html"; // Redirect to home page
+    } else {
+        window.location.href = "account.html"; // Redirect to login page
+    }
+});
+
+checkLoginStatus();
 
 
 

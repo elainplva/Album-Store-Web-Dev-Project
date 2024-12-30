@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const paymentFailure = document.getElementById('payment-failure');
 
     // Check if the user is logged in
-    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
-    if (!isLoggedIn) {
+    const loggedIn = localStorage.getItem('loggedIn') === 'true'; // Correct comparison
+    if (!loggedIn) {
         alert('Please log in to proceed with the checkout.');
-        window.location.href = 'login.html';
+        window.location.href = 'account.html';
     }
 
     // Handle checkout button click
@@ -17,14 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const cardCvv = document.getElementById('cardCvv').value;
 
         if (cardNumber === '1234 5678 9102 3456' && cardCvv === '123') {
-            // Show success message
+            // Successful payment
             paymentFailure.style.display = 'none';
             paymentSuccess.style.display = 'block';
 
-            // Clear cart and update localStorage
+            // Clear cart
             localStorage.setItem('cart', JSON.stringify([]));
         } else {
-            // Show failure message
+            // Failed payment
             paymentSuccess.style.display = 'none';
             paymentFailure.style.display = 'block';
         }
