@@ -1,6 +1,8 @@
 body{
     margin: 0;
-    font-family: Poppins;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding-top: 60px; 
 }
 .container{
     width: 900px;
@@ -8,8 +10,67 @@ body{
     max-width: 90vw;
     text-align: center;
     padding-top: 10px;
+    padding-bottom: 20px;
     transition: transform .5s;
 }
+
+footer{
+    background-color: rgb(236, 186, 59);
+    width: auto;
+    
+
+}
+
+.stars{
+    color: yellow;
+}
+
+.card-body{
+    margin-bottom: 30px;
+}
+
+.navbar {
+    width: 100%; 
+    background-size: cover;
+    background-position: center;
+    padding: 10px 0; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    top: 0;
+    right: 0;
+    position: fixed; 
+    z-index: 1050;
+
+}
+
+footer {
+    width: 100%; 
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgb(236, 186, 59); 
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    z-index: 10; 
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #000;
+}
+.nav-link {
+    background-color: #EEEEE6;
+    
+}
+
+.navbar-toggler {
+    background-color: rgb(125, 220, 220);
+}
+
+.nav-link:hover {
+    background-color: rgb(227, 194, 199);
+}
+
 svg{
     width: 40px;
 }
@@ -21,35 +82,23 @@ svg{
     padding: 20px 0;
 }
 
-#cart .icon-cart span {
-    display: block;
-    width: 40px;
-    height: 40px;
-    background-color: red;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    right: -20px;
-
-}
-
 .icon-cart{
     position: relative;
+    color: aqua;
 }
 .icon-cart span{
     position: absolute;
-    background-color: red;
+    background-color: rgb(178, 225, 212);
+    left: 20px; 
+    top: 50%; 
+    transform: translateY(-50%);
     width: 30px;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    color: #fff;
-    top: 50%;
+    color: black;
     right: -20px;
 }
 .title{
@@ -61,7 +110,7 @@ svg{
 }
 .listProduct{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 .listProduct .item{
@@ -75,7 +124,7 @@ svg{
 }
 .listProduct .item .price{
     letter-spacing: 7px;
-    font-size: small;
+    font-size: medium;
 }
 .listProduct .item button{
     background-color: #353432;
@@ -99,6 +148,7 @@ svg{
     display: grid;
     grid-template-rows: 70px 1fr 70px;
     transition: right 0.3s ease; 
+    z-index: 1049;
 }
 
 body.showCart .cartTab {
@@ -161,30 +211,26 @@ body .showCart .container{
     width: 0;
 }
 
-@media only screen and (max-width: 992px) {
+
+@media only screen and (min-width: 992px) {
+    .listProduct{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+   
+}
+
+@media only screen and (min-width: 600px) {
     .listProduct{
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-main #login {
-    padding: 30px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.loginForm{
-    width: 300px;
-    margin: 0 auto;
-
-}
-
-
 /* mobile */
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
     .listProduct{
         grid-template-columns: repeat(2, 1fr);
     }
+    
 }
+
